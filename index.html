@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calabria Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Newsreader:opsz,wght@6..72,400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="admin-link-row"><a href="admin.html" class="admin-link">Apri area admin</a></p>
+        <p class="eyebrow">Provincia di Reggio Calabria e dintorni</p>
+        <h1>Una mappa viva dei borghi e delle localita con itinerari generati dall'IA.</h1>
+        <p class="hero-text">
+          Esplora punti di interesse tra costa, borghi e aree storiche e
+          costruisci un percorso su misura in base a tempo, partenza, ritmo e pause food.
+        </p>
+      </div>
+      <div class="hero-card">
+        <p class="card-label">Come funziona</p>
+        <ol>
+          <li>Guarda i punti sulla mappa.</li>
+          <li>Imposta durata, partenza e preferenze.</li>
+          <li>Ricevi un itinerario pronto da seguire.</li>
+        </ol>
+      </div>
+    </header>
+
+    <main class="content-grid">
+      <section class="panel map-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Mappa</p>
+            <h2>Punti di interesse tra provincia e localita vicine</h2>
+          </div>
+          <p class="section-note" id="poi-count">Caricamento punti...</p>
+        </div>
+        <div id="map" aria-label="Mappa dei punti di interesse"></div>
+        <div class="legend" id="legend"></div>
+      </section>
+
+      <section class="panel planner-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Planner IA</p>
+            <h2>Genera il tuo itinerario</h2>
+          </div>
+        </div>
+
+        <form id="planner-form" class="planner-form">
+          <label>
+            Durata itinerario
+            <input type="range" min="2" max="10" step="1" name="durationHours" value="4" id="durationHours" />
+            <span class="range-value" id="durationValue">4 ore</span>
+          </label>
+
+          <label>
+            Posizione iniziale
+            <input type="text" name="startLocation" value="Scilla" placeholder="Es. Tropea, Scilla, Melito, Pentedattilo..." />
+          </label>
+
+          <label>
+            Ritmo della giornata
+            <select name="pace">
+              <option value="medium">Equilibrato</option>
+              <option value="slow">Rilassato</option>
+              <option value="fast">Veloce</option>
+            </select>
+          </label>
+
+          <fieldset>
+            <legend>Interessi principali</legend>
+            <div class="chips">
+              <label class="chip-option">
+                <input type="checkbox" name="interests" value="culture" checked />
+                <span>Cultura</span>
+              </label>
+              <label class="chip-option">
+                <input type="checkbox" name="interests" value="panorama" checked />
+                <span>Panorami</span>
+              </label>
+              <label class="chip-option">
+                <input type="checkbox" name="interests" value="nature" />
+                <span>Relax</span>
+              </label>
+              <label class="chip-option">
+                <input type="checkbox" name="interests" value="food" />
+                <span>Food</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <label class="toggle">
+            <input type="checkbox" name="includeFood" checked />
+            <span>Voglio includere una sosta per mangiare o bere qualcosa</span>
+          </label>
+
+          <div style="margin-top:8px">
+            <label style="display:grid;gap:8px;font-size:0.88rem;color:var(--muted)">
+              Chiave API Anthropic (opzionale — usa la logica locale se vuota)
+              <input type="password" id="apiKey" placeholder="sk-ant-..." style="min-height:44px;border-radius:14px;border:1px solid var(--border);background:rgba(255,255,255,0.72);padding:0 14px;font:inherit;" />
+            </label>
+          </div>
+
+          <button type="submit" class="primary-button">Genera itinerario</button>
+        </form>
+      </section>
+
+      <section class="panel itinerary-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Risultato</p>
+            <h2>Itinerario suggerito</h2>
+          </div>
+          <p class="section-note" id="generation-source">In attesa della tua richiesta</p>
+        </div>
+
+        <div id="itinerary-output" class="itinerary-output">
+          <div class="empty-state">
+            <h3>Imposta le preferenze e crea il percorso.</h3>
+            <p>
+              Riceverai una sequenza di tappe con motivazione, durata e consigli
+              pratici per esplorare al meglio la zona scelta.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="pois.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

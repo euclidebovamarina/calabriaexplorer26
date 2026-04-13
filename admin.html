@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin POI – Calabria Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Newsreader:opsz,wght@6..72,400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero admin-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Admin</p>
+        <h1>Gestisci luoghi, coordinate e immagini del sito.</h1>
+        <p class="hero-text">
+          Da qui puoi aggiungere nuovi POI, correggere coordinate e descrizioni.
+          I dati vengono salvati nel browser (localStorage). Per rendere le
+          modifiche permanenti, esporta il JSON e aggiorna <strong>pois.js</strong>.
+        </p>
+        <div class="hero-badges">
+          <span>CRUD luoghi</span>
+          <span>Coordinate</span>
+          <span>Esporta JSON</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <p class="card-label">Accessi rapidi</p>
+        <p style="margin-bottom:10px"><a href="index.html" class="admin-link">Torna al sito pubblico</a></p>
+        <button id="export-btn" class="secondary-button" style="width:100%">Esporta pois.js</button>
+        <button id="reset-data-btn" class="danger-button" style="width:100%;margin-top:8px">Ripristina dati originali</button>
+      </div>
+    </header>
+
+    <main class="admin-grid">
+      <!-- Editor -->
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Editor</p>
+            <h2>Nuovo luogo o modifica</h2>
+          </div>
+          <p class="section-note" id="admin-status">Pronto</p>
+        </div>
+
+        <form id="poi-form" class="planner-form admin-form">
+          <input type="hidden" name="id" />
+          <label>Nome<input type="text" name="name" required /></label>
+          <label>Area<input type="text" name="area" required /></label>
+          <label>Tipo
+            <select name="type">
+              <option value="culture">Cultura</option>
+              <option value="panorama">Panorama</option>
+              <option value="nature">Relax</option>
+              <option value="food">Food</option>
+            </select>
+          </label>
+          <label>Categoria<input type="text" name="categoryLabel" required /></label>
+          <label>Latitudine<input type="number" step="0.00001" name="lat" required /></label>
+          <label>Longitudine<input type="number" step="0.00001" name="lng" required /></label>
+          <label>Durata visita (min)<input type="number" name="visitMinutes" min="1" required /></label>
+          <label>Durata food (min)<input type="number" name="foodMinutes" min="0" value="0" /></label>
+          <label>Percorso immagine<input type="text" name="imagePath" placeholder="images/pois/nome-file.jpg" /></label>
+          <label>Alt immagine<input type="text" name="imageLabel" /></label>
+          <label class="full-span">Descrizione<textarea name="description" rows="4" required></textarea></label>
+          <div class="admin-actions full-span">
+            <button type="submit" class="primary-button">Salva luogo</button>
+            <button type="button" id="reset-form" class="secondary-button">Nuovo record</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Archive -->
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Archivio</p>
+            <h2>Luoghi presenti</h2>
+          </div>
+          <p class="section-note" id="poi-total">Caricamento...</p>
+        </div>
+        <div id="poi-list" class="admin-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="pois.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

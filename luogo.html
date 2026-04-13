@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scopri il luogo – Calabria Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Newsreader:opsz,wght@6..72,400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="luogo.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="luogo-header">
+      <a href="index.html" class="back-link">← Torna alla mappa</a>
+    </header>
+
+    <main id="luogo-main" class="luogo-main">
+      <div class="luogo-loading" id="loading-state">
+        <div class="spinner"></div>
+        <p>Caricamento in corso...</p>
+      </div>
+
+      <div id="luogo-content" style="display:none">
+        <!-- Hero section -->
+        <section class="panel luogo-hero-panel">
+          <div class="luogo-image-shell" id="hero-image-shell">
+            <img id="hero-image" src="" alt="" class="luogo-hero-image"
+              onerror="this.style.display='none'; document.getElementById('hero-placeholder').style.display='grid';" />
+            <div class="luogo-hero-placeholder" id="hero-placeholder" style="display:none">
+              <span id="hero-placeholder-label"></span>
+            </div>
+          </div>
+          <div class="luogo-hero-copy">
+            <div class="luogo-badges">
+              <span class="pill" id="badge-area"></span>
+              <span class="pill pill-type" id="badge-type"></span>
+              <span class="pill" id="badge-duration"></span>
+            </div>
+            <h1 id="luogo-title" class="luogo-title"></h1>
+            <p id="luogo-description" class="luogo-description"></p>
+          </div>
+        </section>
+
+        <!-- AI description section -->
+        <section class="panel luogo-ai-panel" id="ai-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Descrizione IA</p>
+              <h2>Scopri questo luogo</h2>
+            </div>
+            <p class="section-note" id="ai-source-note">Generazione in corso...</p>
+          </div>
+
+          <div id="ai-loading" class="ai-loading">
+            <div class="ai-shimmer"></div>
+            <div class="ai-shimmer ai-shimmer-short"></div>
+            <div class="ai-shimmer"></div>
+            <div class="ai-shimmer ai-shimmer-short"></div>
+          </div>
+
+          <div id="ai-content" style="display:none" class="ai-content">
+            <div id="ai-intro" class="ai-section-block"></div>
+            <div class="ai-grid" id="ai-grid"></div>
+            <div id="ai-tips" class="ai-tips-block"></div>
+          </div>
+
+          <div id="ai-error" style="display:none" class="empty-state">
+            <h3>Descrizione non disponibile</h3>
+            <p>Non e stato possibile generare la descrizione IA. Aggiungi una chiave API Anthropic per abilitarla.</p>
+          </div>
+        </section>
+
+        <!-- API key input for luogo page -->
+        <section class="panel" style="margin-bottom:24px">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Generazione AI</p>
+              <h2>Descrizione con Claude</h2>
+            </div>
+          </div>
+          <div style="display:grid;gap:12px;max-width:480px">
+            <label style="display:grid;gap:8px;font-size:0.9rem;color:var(--muted)">
+              Chiave API Anthropic
+              <input type="password" id="luogo-api-key" placeholder="sk-ant-..."
+                style="min-height:46px;border-radius:14px;border:1px solid var(--border);background:rgba(255,255,255,0.72);padding:0 14px;font:inherit;" />
+            </label>
+            <button id="gen-description-btn" class="primary-button" style="max-width:220px">
+              Genera descrizione
+            </button>
+          </div>
+        </section>
+
+        <!-- CTA back -->
+        <div class="luogo-cta">
+          <a href="index.html" class="primary-button luogo-cta-btn">← Esplora altri luoghi sulla mappa</a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="pois.js"></script>
+  <script src="luogo.js"></script>
+</body>
+</html>
