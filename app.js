@@ -313,20 +313,25 @@ function renderMap(pois) {
 // ---- Itinerary render ----
 
 function renderItinerary(start, itinerary) {
-  const stopsMarkup = itinerary.stops.map(stop => `
-    <article class="stop-card">
-      <div class="stop-image-shell">
-        <img
-          src="${stop.imagePath}"
-          alt="${stop.imageLabel}"
-          class="stop-image"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
-        />
-        <div class="image-placeholder" style="display:none">
-          <span>Inserisci immagine</span>
-          <small>${stop.imagePath.replace("images/pois/", "")}</small>
-        </div>
-      </div>
+  const stopsMarkup = itinerary.stops.map(stop => {
+    const isFood = stop.type === "food";
+    const imgSrc = !isFood && stop.imagePath ? stop.imagePath : null;
+    const imgHtml = imgSrc
+      ? `<div class="stop-image-shell">
+          <img
+            src="${imgSrc}"
+            alt="${stop.imageLabel}"
+            class="stop-image"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+          />
+          <div class="image-placeholder" style="display:none">
+            <span>${stop.name}</span>
+          </div>
+        </div>`
+      : "";
+    return `
+    <article class="stop-card" onclick="window.location.href='luogo.html?id=${stop.id}'" style="cursor:pointer">
+      ${imgHtml}
       <div class="stop-number">${stop.order}</div>
       <h4>${stop.name}</h4>
       <div class="stop-meta">
@@ -342,8 +347,10 @@ function renderItinerary(start, itinerary) {
       </div>
       <p>${stop.description}</p>
       <p><strong>Perche qui:</strong> ${stop.why}</p>
+      <span class="stop-link-hint">Scopri questo luogo →</span>
     </article>
-  `).join("");
+  `;
+  }).join("");
 
   const tipsMarkup = itinerary.practicalTips.map(t => `<li>${t}</li>`).join("");
 

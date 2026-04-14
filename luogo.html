@@ -7,6 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Newsreader:opsz,wght@6..72,400;600&display=swap" rel="stylesheet" />
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="luogo.css" />
 </head>
@@ -23,6 +25,7 @@
       </div>
 
       <div id="luogo-content" style="display:none">
+
         <!-- Hero section -->
         <section class="panel luogo-hero-panel">
           <div class="luogo-image-shell" id="hero-image-shell">
@@ -43,51 +46,82 @@
           </div>
         </section>
 
-        <!-- AI description section -->
+        <!-- Gallery section -->
+        <section class="panel luogo-gallery-panel" id="gallery-section" style="display:none">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Fotografie</p>
+              <h2>Galleria immagini</h2>
+            </div>
+          </div>
+          <div class="luogo-gallery" id="luogo-gallery"></div>
+        </section>
+
+        <!-- MAPPA CON PERCORSO -->
+        <section class="panel" id="route-map-section" style="display:none; margin-bottom:24px">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Navigazione</p>
+              <h2>Come raggiungerci</h2>
+            </div>
+            <p class="section-note" id="route-status">Caricamento mappa...</p>
+          </div>
+          <div id="route-map" style="width:100%;height:380px;border-radius:18px;overflow:hidden;border:1px solid var(--border);"></div>
+        </section>
+
+        <!-- Storia e descrizione del luogo -->
         <section class="panel luogo-ai-panel" id="ai-section">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Descrizione IA</p>
+              <p class="eyebrow">Storia e curiosità</p>
               <h2>Scopri questo luogo</h2>
             </div>
-            <p class="section-note" id="ai-source-note">Generazione in corso...</p>
           </div>
 
-          <div id="ai-loading" class="ai-loading">
-            <div class="ai-shimmer"></div>
-            <div class="ai-shimmer ai-shimmer-short"></div>
+          <div id="ai-loading" class="ai-loading" style="display:none">
             <div class="ai-shimmer"></div>
             <div class="ai-shimmer ai-shimmer-short"></div>
           </div>
 
-          <div id="ai-content" style="display:none" class="ai-content">
+          <div id="ai-content" class="ai-content">
             <div id="ai-intro" class="ai-section-block"></div>
             <div class="ai-grid" id="ai-grid"></div>
             <div id="ai-tips" class="ai-tips-block"></div>
           </div>
-
-          <div id="ai-error" style="display:none" class="empty-state">
-            <h3>Descrizione non disponibile</h3>
-            <p>Non e stato possibile generare la descrizione IA. Aggiungi una chiave API Anthropic per abilitarla.</p>
-          </div>
         </section>
 
-        <!-- API key input for luogo page -->
-        <section class="panel" style="margin-bottom:24px">
+        <!-- CHAT BOT AI -->
+        <section class="panel" id="chat-section" style="display:none; margin-bottom:24px">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Generazione AI</p>
-              <h2>Descrizione con Claude</h2>
+              <p class="eyebrow">Guida virtuale</p>
+              <h2>Chatta con la guida AI</h2>
             </div>
+            <p class="section-note">Powered by Claude</p>
           </div>
-          <div style="display:grid;gap:12px;max-width:480px">
-            <label style="display:grid;gap:8px;font-size:0.9rem;color:var(--muted)">
-              Chiave API Anthropic
-              <input type="password" id="luogo-api-key" placeholder="sk-ant-..."
-                style="min-height:46px;border-radius:14px;border:1px solid var(--border);background:rgba(255,255,255,0.72);padding:0 14px;font:inherit;" />
-            </label>
-            <button id="gen-description-btn" class="primary-button" style="max-width:220px">
-              Genera descrizione
+
+          <div id="chat-box" style="
+            height:340px;
+            overflow-y:auto;
+            display:flex;
+            flex-direction:column;
+            gap:12px;
+            padding:16px;
+            background:rgba(255,250,243,0.6);
+            border:1px solid var(--border);
+            border-radius:16px;
+            margin-bottom:14px;
+          "></div>
+
+          <div style="display:flex;gap:10px;align-items:flex-end">
+            <input
+              type="text"
+              id="chat-input"
+              placeholder="Chiedi qualcosa su questo luogo..."
+              style="flex:1;min-height:46px;border-radius:14px;border:1px solid var(--border);background:rgba(255,255,255,0.72);padding:0 16px;font:inherit;font-size:0.95rem;outline:none;"
+            />
+            <button id="chat-send" class="primary-button" style="min-width:90px;height:46px;flex-shrink:0">
+              Invia
             </button>
           </div>
         </section>
@@ -96,11 +130,60 @@
         <div class="luogo-cta">
           <a href="index.html" class="primary-button luogo-cta-btn">← Esplora altri luoghi sulla mappa</a>
         </div>
+
       </div>
     </main>
   </div>
 
+  <!-- Leaflet JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   <script src="pois.js"></script>
   <script src="luogo.js"></script>
+
+  <style>
+    /* Chat messages */
+    .chat-msg {
+      max-width: 80%;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-size: 0.93rem;
+      line-height: 1.55;
+      word-break: break-word;
+    }
+    .chat-msg-bot {
+      background: rgba(15,110,140,0.1);
+      color: var(--sea-deep);
+      border-bottom-left-radius: 4px;
+      align-self: flex-start;
+    }
+    .chat-msg-user {
+      background: var(--sea-deep);
+      color: #fff;
+      border-bottom-right-radius: 4px;
+      align-self: flex-end;
+    }
+    .chat-typing {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 14px 18px;
+    }
+    .chat-typing span {
+      width: 8px; height: 8px;
+      background: var(--sea);
+      border-radius: 50%;
+      animation: chatBounce 1.1s infinite ease-in-out;
+    }
+    .chat-typing span:nth-child(2) { animation-delay: 0.18s; }
+    .chat-typing span:nth-child(3) { animation-delay: 0.36s; }
+    @keyframes chatBounce {
+      0%, 80%, 100% { transform: scale(0.7); opacity:0.5; }
+      40%           { transform: scale(1);   opacity:1;   }
+    }
+    #chat-input:focus {
+      border-color: var(--sea);
+      box-shadow: 0 0 0 3px rgba(15,110,140,0.12);
+    }
+  </style>
 </body>
 </html>

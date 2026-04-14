@@ -11,9 +11,18 @@ const POIS_DATA = [
     "lng": 15.65186,
     "visitMinutes": 45,
     "foodMinutes": 0,
-    "imagePath": "images/pois/reggio-lungomare.jpg",
+    "imagePath": "images/pois/gallery/reggio-lungomare-1.png",
     "imageLabel": "lungomare di Reggio Calabria",
-    "description": "Il tratto piu iconico del fronte mare reggino, perfetto per iniziare o chiudere la giornata."
+    "description": "Il tratto piu iconico del fronte mare reggino, perfetto per iniziare o chiudere la giornata.",
+    "gallery": [
+      "images/pois/gallery/reggio-lungomare-1.png",
+      "images/pois/gallery/reggio-lungomare-2.png",
+      "images/pois/gallery/reggio-lungomare-3.png",
+      "images/pois/gallery/reggio-lungomare-4.png",
+      "images/pois/gallery/reggio-lungomare-5.png",
+      "images/pois/gallery/reggio-lungomare-6.png",
+      "images/pois/gallery/reggio-lungomare-7.png"
+    ]
   },
   {
     "id": "reggio-museo",
@@ -25,9 +34,17 @@ const POIS_DATA = [
     "lng": 15.65085,
     "visitMinutes": 95,
     "foodMinutes": 0,
-    "imagePath": "images/pois/reggio-museo.jpg",
+    "imagePath": "images/pois/gallery/reggio-museo-1.png",
     "imageLabel": "museo archeologico di Reggio Calabria",
-    "description": "Tappa simbolo per chi vuole costruire un itinerario culturale attorno ai Bronzi di Riace."
+    "description": "Tappa simbolo per chi vuole costruire un itinerario culturale attorno ai Bronzi di Riace.",
+    "gallery": [
+      "images/pois/gallery/reggio-museo-1.png",
+      "images/pois/gallery/reggio-museo-2.png",
+      "images/pois/gallery/reggio-museo-3.png",
+      "images/pois/gallery/reggio-museo-4.png",
+      "images/pois/gallery/reggio-museo-5.png",
+      "images/pois/gallery/reggio-museo-6.png"
+    ]
   },
   {
     "id": "reggio-castello",
@@ -39,9 +56,15 @@ const POIS_DATA = [
     "lng": 15.64424,
     "visitMinutes": 55,
     "foodMinutes": 0,
-    "imagePath": "images/pois/reggio-castello.jpg",
+    "imagePath": "images/pois/gallery/reggio-castello-1.png",
     "imageLabel": "castello aragonese di Reggio Calabria",
-    "description": "Fortezza urbana tra le tappe piu riconoscibili del centro storico."
+    "description": "Fortezza urbana tra le tappe piu riconoscibili del centro storico.",
+    "gallery": [
+      "images/pois/gallery/reggio-castello-1.png",
+      "images/pois/gallery/reggio-castello-2.png",
+      "images/pois/gallery/reggio-castello-3.png",
+      "images/pois/gallery/reggio-castello-4.png"
+    ]
   },
   {
     "id": "scilla-castello",
@@ -53,9 +76,16 @@ const POIS_DATA = [
     "lng": 15.71475,
     "visitMinutes": 60,
     "foodMinutes": 0,
-    "imagePath": "images/pois/scilla-castello.jpg",
+    "imagePath": "images/pois/gallery/scilla-castello-1.png",
     "imageLabel": "castello Ruffo di Scilla",
-    "description": "Il castello domina il promontorio e regala una vista fortissima sullo Stretto."
+    "description": "Il castello domina il promontorio e regala una vista fortissima sullo Stretto.",
+    "gallery": [
+      "images/pois/gallery/scilla-castello-1.png",
+      "images/pois/gallery/scilla-castello-2.png",
+      "images/pois/gallery/scilla-castello-3.png",
+      "images/pois/gallery/scilla-castello-4.png",
+      "images/pois/gallery/scilla-castello-5.png"
+    ]
   },
   {
     "id": "scilla-chianalea",
@@ -67,9 +97,16 @@ const POIS_DATA = [
     "lng": 15.7182,
     "visitMinutes": 75,
     "foodMinutes": 0,
-    "imagePath": "images/pois/scilla-chianalea.jpg",
+    "imagePath": "images/pois/gallery/scilla-chianalea-1.png",
     "imageLabel": "borgo di Chianalea",
-    "description": "Il tratto piu fotografato di Scilla, con case sul mare e vicoli stretti."
+    "description": "Il tratto piu fotografato di Scilla, con case sul mare e vicoli stretti.",
+    "gallery": [
+      "images/pois/gallery/scilla-chianalea-1.png",
+      "images/pois/gallery/scilla-chianalea-2.png",
+      "images/pois/gallery/scilla-chianalea-3.png",
+      "images/pois/gallery/scilla-chianalea-4.png",
+      "images/pois/gallery/scilla-chianalea-5.png"
+    ]
   },
   {
     "id": "scilla-belvedere",
@@ -81,9 +118,16 @@ const POIS_DATA = [
     "lng": 15.71662,
     "visitMinutes": 30,
     "foodMinutes": 0,
-    "imagePath": "images/pois/scilla-belvedere.jpg",
+    "imagePath": "images/pois/gallery/scilla-belvedere-1.png",
     "imageLabel": "belvedere di Scilla",
-    "description": "Una sosta breve ma scenografica sopra il borgo e la costa."
+    "description": "Una sosta breve ma scenografica sopra il borgo e la costa.",
+    "gallery": [
+      "images/pois/gallery/scilla-belvedere-1.png",
+      "images/pois/gallery/scilla-belvedere-2.png",
+      "images/pois/gallery/scilla-belvedere-3.png",
+      "images/pois/gallery/scilla-belvedere-4.png",
+      "images/pois/gallery/scilla-belvedere-5.png"
+    ]
   },
   {
     "id": "tropea-centro",
@@ -95,9 +139,15 @@ const POIS_DATA = [
     "lng": 15.8949,
     "visitMinutes": 90,
     "foodMinutes": 0,
-    "imagePath": "images/pois/tropea-centro.jpg",
+    "imagePath": "images/pois/gallery/tropea-centro-1.png",
     "imageLabel": "centro storico di Tropea",
-    "description": "Stradine, scorci sul Tirreno e un centro storico perfetto per una mezza giornata."
+    "description": "Stradine, scorci sul Tirreno e un centro storico perfetto per una mezza giornata.",
+    "gallery": [
+      "images/pois/gallery/tropea-centro-1.png",
+      "images/pois/gallery/tropea-centro-2.png",
+      "images/pois/gallery/tropea-centro-3.png",
+      "images/pois/gallery/tropea-centro-4.png"
+    ]
   },
   {
     "id": "tropea-santamaria",
@@ -109,9 +159,15 @@ const POIS_DATA = [
     "lng": 15.89869,
     "visitMinutes": 50,
     "foodMinutes": 0,
-    "imagePath": "images/pois/tropea-santamaria.jpg",
+    "imagePath": "images/pois/gallery/tropea-santamaria-1.png",
     "imageLabel": "Santa Maria dell'Isola a Tropea",
-    "description": "Uno dei punti panoramici piu celebri della costa calabrese."
+    "description": "Uno dei punti panoramici piu celebri della costa calabrese.",
+    "gallery": [
+      "images/pois/gallery/tropea-santamaria-1.png",
+      "images/pois/gallery/tropea-santamaria-2.png",
+      "images/pois/gallery/tropea-santamaria-3.png",
+      "images/pois/gallery/tropea-santamaria-4.png"
+    ]
   },
   {
     "id": "tropea-marina",
@@ -123,9 +179,14 @@ const POIS_DATA = [
     "lng": 15.89805,
     "visitMinutes": 35,
     "foodMinutes": 0,
-    "imagePath": "images/pois/tropea-marina.jpg",
+    "imagePath": "images/pois/gallery/tropea-marina-1.png",
     "imageLabel": "mare di Tropea",
-    "description": "Pausa rilassata per godersi la costa e il profilo del santuario."
+    "description": "Pausa rilassata per godersi la costa e il profilo del santuario.",
+    "gallery": [
+      "images/pois/gallery/tropea-marina-1.png",
+      "images/pois/gallery/tropea-marina-2.png",
+      "images/pois/gallery/tropea-marina-3.png"
+    ]
   },
   {
     "id": "melito-centro",
@@ -137,9 +198,14 @@ const POIS_DATA = [
     "lng": 15.7779,
     "visitMinutes": 35,
     "foodMinutes": 0,
-    "imagePath": "images/pois/melito-centro.jpg",
+    "imagePath": "images/pois/gallery/melito-centro-1.png",
     "imageLabel": "Melito di Porto Salvo",
-    "description": "Punto utile per costruire itinerari nella fascia ionica sud."
+    "description": "Punto utile per costruire itinerari nella fascia ionica sud.",
+    "gallery": [
+      "images/pois/gallery/melito-centro-1.png",
+      "images/pois/gallery/melito-centro-2.png",
+      "images/pois/gallery/melito-centro-3.png"
+    ]
   },
   {
     "id": "melito-lungomare",
@@ -151,9 +217,14 @@ const POIS_DATA = [
     "lng": 15.77985,
     "visitMinutes": 40,
     "foodMinutes": 0,
-    "imagePath": "images/pois/melito-lungomare.jpg",
+    "imagePath": "images/pois/gallery/melito-lungomare-1.png",
     "imageLabel": "lungomare di Melito",
-    "description": "Passeggiata semplice sul mare, adatta a itinerari brevi o serali."
+    "description": "Passeggiata semplice sul mare, adatta a itinerari brevi o serali.",
+    "gallery": [
+      "images/pois/gallery/melito-lungomare-1.png",
+      "images/pois/gallery/melito-lungomare-2.png",
+      "images/pois/gallery/melito-lungomare-3.png"
+    ]
   },
   {
     "id": "pentedattilo-borgo",
@@ -165,9 +236,17 @@ const POIS_DATA = [
     "lng": 15.76102,
     "visitMinutes": 85,
     "foodMinutes": 0,
-    "imagePath": "images/pois/pentedattilo-borgo.jpg",
+    "imagePath": "images/pois/gallery/pentedattilo-borgo-1.png",
     "imageLabel": "borgo di Pentedattilo",
-    "description": "Tra i luoghi piu suggestivi dell'area grecanica, incastonato nella roccia."
+    "description": "Tra i luoghi piu suggestivi dell'area grecanica, incastonato nella roccia.",
+    "gallery": [
+      "images/pois/gallery/pentedattilo-borgo-1.png",
+      "images/pois/gallery/pentedattilo-borgo-2.png",
+      "images/pois/gallery/pentedattilo-borgo-3.png",
+      "images/pois/gallery/pentedattilo-borgo-4.png",
+      "images/pois/gallery/pentedattilo-borgo-5.png",
+      "images/pois/gallery/pentedattilo-borgo-6.png"
+    ]
   },
   {
     "id": "condofuri-marina",
@@ -179,9 +258,15 @@ const POIS_DATA = [
     "lng": 15.87166,
     "visitMinutes": 45,
     "foodMinutes": 0,
-    "imagePath": "images/pois/condofuri-marina.jpg",
+    "imagePath": "images/pois/gallery/condofuri-marina-1.png",
     "imageLabel": "Condofuri Marina",
-    "description": "Tratto di costa tranquillo, ideale per una sosta mare e relax."
+    "description": "Tratto di costa tranquillo, ideale per una sosta mare e relax.",
+    "gallery": [
+      "images/pois/gallery/condofuri-marina-1.png",
+      "images/pois/gallery/condofuri-marina-2.png",
+      "images/pois/gallery/condofuri-marina-3.png",
+      "images/pois/gallery/condofuri-marina-4.png"
+    ]
   },
   {
     "id": "ammendolea-borgo",
@@ -193,9 +278,16 @@ const POIS_DATA = [
     "lng": 15.89287,
     "visitMinutes": 75,
     "foodMinutes": 0,
-    "imagePath": "images/pois/ammendolea-borgo.jpg",
+    "imagePath": "images/pois/gallery/ammendolea-borgo-1.png",
     "imageLabel": "borgo di Amendolea",
-    "description": "Piccolo borgo dell'area grecanica con forte carattere paesaggistico."
+    "description": "Piccolo borgo dell'area grecanica con forte carattere paesaggistico.",
+    "gallery": [
+      "images/pois/gallery/ammendolea-borgo-1.png",
+      "images/pois/gallery/ammendolea-borgo-2.png",
+      "images/pois/gallery/ammendolea-borgo-3.png",
+      "images/pois/gallery/ammendolea-borgo-4.png",
+      "images/pois/gallery/ammendolea-borgo-5.png"
+    ]
   },
   {
     "id": "bova-borgo",
@@ -207,9 +299,16 @@ const POIS_DATA = [
     "lng": 15.9329,
     "visitMinutes": 85,
     "foodMinutes": 0,
-    "imagePath": "images/pois/bova-borgo.jpg",
+    "imagePath": "images/pois/gallery/bova-borgo-1.png",
     "imageLabel": "borgo di Bova",
-    "description": "Uno dei paesi piu identitari dell'area grecanica, tra storia e tradizioni."
+    "description": "Uno dei paesi piu identitari dell'area grecanica, tra storia e tradizioni.",
+    "gallery": [
+      "images/pois/gallery/bova-borgo-1.png",
+      "images/pois/gallery/bova-borgo-2.png",
+      "images/pois/gallery/bova-borgo-3.png",
+      "images/pois/gallery/bova-borgo-4.png",
+      "images/pois/gallery/bova-borgo-5.png"
+    ]
   },
   {
     "id": "bova-belvedere",
@@ -235,9 +334,16 @@ const POIS_DATA = [
     "lng": 16.22093,
     "visitMinutes": 95,
     "foodMinutes": 0,
-    "imagePath": "images/pois/gerace-centro.jpg",
+    "imagePath": "images/pois/gallery/gerace-centro-1.png",
     "imageLabel": "centro storico di Gerace",
-    "description": "Borgo medievale dell'entroterra con un tessuto urbano tra i piu belli della zona."
+    "description": "Borgo medievale dell'entroterra con un tessuto urbano tra i piu belli della zona.",
+    "gallery": [
+      "images/pois/gallery/gerace-centro-1.png",
+      "images/pois/gallery/gerace-centro-2.png",
+      "images/pois/gallery/gerace-centro-3.png",
+      "images/pois/gallery/gerace-centro-4.png",
+      "images/pois/gallery/gerace-centro-5.png"
+    ]
   },
   {
     "id": "gerace-cattedrale",
@@ -249,9 +355,16 @@ const POIS_DATA = [
     "lng": 16.22156,
     "visitMinutes": 45,
     "foodMinutes": 0,
-    "imagePath": "images/pois/gerace-cattedrale.jpg",
+    "imagePath": "images/pois/gallery/gerace-cattedrale-1.png",
     "imageLabel": "cattedrale di Gerace",
-    "description": "Una delle visite piu forti per chi ama chiese storiche e architettura."
+    "description": "Una delle visite piu forti per chi ama chiese storiche e architettura.",
+    "gallery": [
+      "images/pois/gallery/gerace-cattedrale-1.png",
+      "images/pois/gallery/gerace-cattedrale-2.png",
+      "images/pois/gallery/gerace-cattedrale-3.png",
+      "images/pois/gallery/gerace-cattedrale-4.png",
+      "images/pois/gallery/gerace-cattedrale-5.png"
+    ]
   },
   {
     "id": "locri-parco",
@@ -263,9 +376,17 @@ const POIS_DATA = [
     "lng": 16.26653,
     "visitMinutes": 95,
     "foodMinutes": 0,
-    "imagePath": "images/pois/locri-parco.jpg",
+    "imagePath": "images/pois/gallery/locri-parco-1.png",
     "imageLabel": "parco archeologico di Locri Epizefiri",
-    "description": "Sito archeologico chiave per un itinerario storico nel versante ionico."
+    "description": "Sito archeologico chiave per un itinerario storico nel versante ionico.",
+    "gallery": [
+      "images/pois/gallery/locri-parco-1.png",
+      "images/pois/gallery/locri-parco-2.png",
+      "images/pois/gallery/locri-parco-3.png",
+      "images/pois/gallery/locri-parco-4.png",
+      "images/pois/gallery/locri-parco-5.png",
+      "images/pois/gallery/locri-parco-6.png"
+    ]
   },
   {
     "id": "locri-lungomare",
@@ -277,9 +398,15 @@ const POIS_DATA = [
     "lng": 16.2596,
     "visitMinutes": 35,
     "foodMinutes": 0,
-    "imagePath": "images/pois/locri-lungomare.jpg",
+    "imagePath": "images/pois/gallery/locri-lungomare-1.png",
     "imageLabel": "lungomare di Locri",
-    "description": "Una sosta mare semplice da inserire in una giornata sul versante ionico."
+    "description": "Una sosta mare semplice da inserire in una giornata sul versante ionico.",
+    "gallery": [
+      "images/pois/gallery/locri-lungomare-1.png",
+      "images/pois/gallery/locri-lungomare-2.png",
+      "images/pois/gallery/locri-lungomare-3.png",
+      "images/pois/gallery/locri-lungomare-4.png"
+    ]
   },
   {
     "id": "tropea-pranzo",

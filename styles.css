@@ -461,3 +461,24 @@ input[type="range"] {
   }
   #map { height: 340px; }
 }
+
+/* === Stop card clickable + link hint === */
+.stop-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.stop-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(7, 59, 82, 0.13);
+}
+.stop-link-hint {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--sea-deep, #073b52);
+  opacity: 0.7;
+}
+.stop-card:hover .stop-link-hint {
+  opacity: 1;
+  text-decoration: underline;
+}
